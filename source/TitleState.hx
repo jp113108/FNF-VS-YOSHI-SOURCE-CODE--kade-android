@@ -20,11 +20,11 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
+if newgrounds
 import lime.app.Application;
-import openfl.Assets;
+#if end
 
-#if windows
+if windows
 import Discord.DiscordClient;
 #end
 
@@ -51,11 +51,11 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		#if polymod
+	
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
 		
-		#if sys
+	
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
 		#end
@@ -315,7 +315,7 @@ class TitleState extends MusicBeatState
 			if (gamepad.justPressed.START)
 				pressedEnter = true;
 
-			#if switch
+		       #if switch
 			if (gamepad.justPressed.B)
 				pressedEnter = true;
 			#end
@@ -323,7 +323,7 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			#if !switch
+			
 			NGio.unlockMedal(60960);
 
 			// If it's Friday according to da clock
